@@ -32,15 +32,6 @@ const fadeUp: Variants = {
   }),
 };
 
-const fadeRight = {
-  hidden: { opacity: 0, x: 24 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.6, ease: 'easeOut', delay },
-  }),
-};
-
 const staggerMain = {
   hidden: {},
   visible: {
@@ -226,12 +217,11 @@ export default function About() {
 
           {/* SIDEBAR */}
           <motion.aside
-            variants={fadeRight}
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            custom={0.2}
-            className="space-y-5 lg:sticky lg:top-24 self-start"
+            transition={{ duration: 0.6 }}
+            className="mt-8 lg:mt-0 lg:sticky lg:top-28 lg:h-fit rounded-3xl bg-slate-900 text-slate-50 px-6 py-7 space-y-4 shadow-xl shadow-slate-900/30"
           >
             {/* Products quick links */}
             <motion.div
